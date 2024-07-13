@@ -34,10 +34,12 @@ Standardization- In this process we transform our values so that the standard de
 Converting the datatypes from one format to useable format or data type.
 
 Model Building:
+
 Gradient Boosting:
 This technique permits the optimization of arbitrary differentiable loss functions and constructs an additive model in forward step-by-step manner. Regression trees with n classes are fitted on the negative gradient of the loss function, such as the multiclass log loss or binary loss, in each stage. In the particular case of binary classification, just one regression tree is included.
 
-Logistic Regression- This method is used for analysing the data which has one or more independent variables in the dataset which can help in predicting the outcome. We perform this regression to know the best model that fits to describe the relationship between dependent and independent variable.
+Logistic Regression:
+This method is used for analysing the data which has one or more independent variables in the dataset which can help in predicting the outcome. We perform this regression to know the best model that fits to describe the relationship between dependent and independent variable.
 
 Files:
 
