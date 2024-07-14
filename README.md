@@ -42,11 +42,13 @@ Transported - The objective. For each passenger, forecast True or False.
 - Data Loading and Preprocessing
 Imports necessary libraries (pandas, numpy, sklearn, etc.)
 "https://colab.research.google.com/github/7PAM2015-0509-2023-GROUP5/Kaggle_Challenge/blob/main/Kaggle_Challenge_Notebook.ipynb#scrollTo=rLexyNXc2-fR&line=13&uniqifier=1"
+
 Loads training and test datasets
 Handles missing values and performs initial data cleaning
 - Exploratory Data Analysis (EDA)
-"https://colab.research.google.com/github/7PAM2015-0509-2023-GROUP5/Kaggle_Challenge/blob/main/Kaggle_Challenge_Notebook.ipynb#scrollTo=hUDvkr8e9W1-&line=8&uniqifier=1
-Visualizes data distributions and relationships"
+"https://colab.research.google.com/github/7PAM2015-0509-2023-GROUP5/Kaggle_Challenge/blob/main/Kaggle_Challenge_Notebook.ipynb#scrollTo=hUDvkr8e9W1-&line=8&uniqifier=1"
+
+Visualizes data distributions and relationships
 Analyzes correlations between features
 - Feature Engineering
 Creates new features from existing data
@@ -87,6 +89,12 @@ This technique permits the optimization of arbitrary differentiable loss functio
 
 Logistic Regression:
 This method is used for analysing the data which has one or more independent variables in the dataset which can help in predicting the outcome. We perform this regression to know the best model that fits to describe the relationship between dependent and independent variable.
+
+Super Vector Machine:
+The Support Vector Machine (SVM) may be implemented in Python with only three lines of code using the scikit-learn module. First, import the SVC class from sklearn.svm. Then, you establish an SVM model instance by specifying the kernel type (e.g., linear) and fitting it to your training data. Finally, you utilise the trained model to generate predictions on previously unseen test data. This simple solution enables speedy setup and execution of SVM classification tasks, making it a useful tool for machine learning projects such as the Spaceship Titanic Challenge.
+
+Random Forest Classifier:
+Random Forest Classifier is an ensemble learning method that creates several decision trees and then combines their outputs to forecast. It reduces overfitting by combining results from many trees, each trained on a random subset of data and characteristics. This method makes Random Forest more resilient, adaptable, and effective for a wide range of classification tasks, including complex challenges like the Spaceship Titanic challenge.
 
 ###  License <a name="license"></a>
 This project is licensed under the MIT License - see the LICENSE file for details.
