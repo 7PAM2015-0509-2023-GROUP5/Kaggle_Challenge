@@ -88,12 +88,66 @@ Converting the datatypes from one format to useable format or data type.
 ### Feature Engineering <a name="Feature Engineering"></a>
 Data Preprocessing pipeline in detail:
 1. Splitting the 'Cabin' Feature: The 'Cabin' feature is divided into three columns: 'Deck', 'CabinNum', and 'Side', using.str.split('/', expand=True). This enables the model to represent spatial relationships depending on cabin features.
+'''shell
+df_train[['Deck', 'CabinNum', 'Side']] = df_train['Cabin'].str.split('/', expand=True)
+df_test[['Deck', 'CabinNum', 'Side']] = df_test['Cabin'].str.split('/', expand=True)
+df_train.drop(columns=['Cabin'], inplace=True)
+df_test.drop(columns=['Cabin'], inplace=True)
+'''
+
 2. Converting 'CryoSleep' and 'VIP' to Boolean:The 'CryoSleep' and 'VIP' features, which indicate whether a passenger chose cryosleep or VIP service, are converted to boolean values (true or false). This standardises their representation for easy use in machine learning models.
+'''shell
+df_train['CryoSleep'] = df_train['CryoSleep'].astype(bool)
+df_test['CryoSleep'] = df_test['CryoSleep'].astype(bool)
+df_train['VIP'] = df_train['VIP'].astype(bool)
+df_test['VIP'] = df_test['VIP'].astype(bool)
+'''
+
 3. Encoding Categorical Features: LabelEncoder converts categorical information such as 'HomePlanet', 'Destination', 'Deck', and 'Side' to numerical values. This transformation turns categorical data into a format suitable for machine learning techniques.
+'''shell
+from sklearn.preprocessing import LabelEncoder
+
+le = LabelEncoder()
+for col in ['HomePlanet', 'Destination', 'Deck', 'Side']:
+    df_train[col] = le.fit_transform(df_train[col])
+    df_test[col] = le.transform(df_test[col])
+'''
+
 4. Feature Scaling:Numerical features like 'Age', 'RoomService', 'FoodCourt', and others are scaled with StandardScaler. Scaling guarantees that all features contribute equally to model training, preventing a single feature from dominating due to its greater numerical range.
+'''shell
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+num_features = ['Age', 'RoomService', 'FoodCourt', 'ShoppingMall', 'Spa', 'VRDeck', 'CabinNum']
+df_train[num_features] = scaler.fit_transform(df_train[num_features])
+df_test[num_features] = scaler.transform(df_test[num_features])
+'''
+
 5. Prepare Target Variable:The goal variable, 'Transported', is separated from the training data (X) and assigned its own variable (y). This enables you to train a model to predict if passengers have been transported.
+'''shell
+X = df_train.drop(columns=['Transported', 'Name', 'PassengerId'])
+y = df_train['Transported']
+X_test = df_test.drop(columns=['Name', 'PassengerId'])
+'''
+
 6. Train-Test Split:The training data (X) is divided into two sets: training and validation (X_train, X_val), each with its own set of target variables. This enables the model to be evaluated on data that it did not observe during training.
+'''shell
+from sklearn.model_selection import train_test_split
+
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
+'''
+
 7. Checking Preprocessed Data:Sample outputs (X_train, y_train, and X_test) display the preprocessed data frames following all transformations. This helps to ensure that the data pretreatment stages were completed appropriately and that the data is ready for model training.
+'''shell
+print("X_train:")
+print(X_train.head())
+
+print("\ny_train:")
+print(y_train.head())
+
+print("\nX_test:")
+print(X_test.head())
+'''
 
 ### Model Building <a name="Model Building"></a>
 Gradient Boosting:
