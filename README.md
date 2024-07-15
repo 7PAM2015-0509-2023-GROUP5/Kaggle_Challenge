@@ -8,15 +8,15 @@
 7.	Anish Teku – 22013306 – at22aej@herts.ac.uk
 
 ### 📚 Table of Contents
-. [Overview] (#Overview)
-. [DESCRIPTION] (#DESCRIPTION)
-. [KEY COMPONENTS] (#KEY_COMPONENTS)
-. [INSTALLATION] (#INSTALLATION)
-. [Data Preprocessing] (#Data_Preprocessing)
-. [Feature Engineering] (#Feature_Engineering)
-. [Model Building] (#Model_Building)
-. [License] (#License)
-. [Citation] (#Citation)
+- [Overview](#overview)
+- [Description](#description)
+- [Key Components](#key-components)
+- [Installation](#installation)
+- [Data Preprocessing](#data-preprocessing)
+- [Feature Engineering](#feature-engineering)
+- [Model Building](#model-building)
+- [License](#license)
+- [Citation](#citation)
   
 In this competition, you must determine whether a passenger was transported to an alternate dimension during the Titanic's collision with the spacetime anomaly. To help you make these forecasts, you are given a collection of personal documents discovered on the ship's wrecked computer system.
 
