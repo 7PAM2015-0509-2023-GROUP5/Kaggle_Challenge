@@ -5,18 +5,18 @@
 4.	Deepika Cherupally – 22031854 – dc22abs@herts.ac.uk
 5.	Dhana Srivalli Golukonda – 21087223 – dg22abc@herts.ac.uk
 6.	Bharath Kumar Savarapu – 22018647 – bs22abu@herts.ac.uk
-7.	Anish Teku – 22018647 – at22aej@herts.ac.uk
+7.	Anish Teku – 22013306 – at22aej@herts.ac.uk
 
 ### 📚 Table of Contents
-- [Overview] (#overview)
-- [DESCRIPTION] (#DESCRIPTION)
-- [KEY COMPONENTS] (#KEY COMPONENTS)
-- [INSTALLATION] (#INSTALLATION)
-- [Data Preprocessing] (#Data Preprocessing)
-- [Feature Engineering] (#Feature Engineering)
-- [Model Building] (#Model Building)
-- [License] (#License)
-- [Citation] (#Citation)
+. [Overview] (#Overview)
+. [DESCRIPTION] (#DESCRIPTION)
+. [KEY COMPONENTS] (#KEY_COMPONENTS)
+. [INSTALLATION] (#INSTALLATION)
+. [Data Preprocessing] (#Data_Preprocessing)
+. [Feature Engineering] (#Feature_Engineering)
+. [Model Building] (#Model_Building)
+. [License] (#License)
+. [Citation] (#Citation)
   
 In this competition, you must determine whether a passenger was transported to an alternate dimension during the Titanic's collision with the spacetime anomaly. To help you make these forecasts, you are given a collection of personal documents discovered on the ship's wrecked computer system.
 
