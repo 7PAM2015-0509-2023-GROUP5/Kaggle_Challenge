@@ -152,37 +152,37 @@ print(X_test.head())
 ```
 
 ### Model Building <a name="model-building"></a>
-Gradient Boosting:
+• Gradient Boosting:
 This technique permits the optimization of arbitrary differentiable loss functions and constructs an additive model in forward step-by-step manner. Regression trees with n classes are fitted on the negative gradient of the loss function, such as the multiclass log loss or binary loss, in each stage. In the particular case of binary classification, just one regression tree is included.
 
-Logistic Regression:
+• Logistic Regression:
 This method is used for analysing the data which has one or more independent variables in the dataset which can help in predicting the outcome. We perform this regression to know the best model that fits to describe the relationship between dependent and independent variable.
 
-Super Vector Machine:
+• Super Vector Machine:
 The Support Vector Machine (SVM) may be implemented in Python with only three lines of code using the scikit-learn module. First, import the SVC class from sklearn.svm. Then, you establish an SVM model instance by specifying the kernel type (e.g., linear) and fitting it to your training data. Finally, you utilise the trained model to generate predictions on previously unseen test data. This simple solution enables speedy setup and execution of SVM classification tasks, making it a useful tool for machine learning projects such as the Spaceship Titanic Challenge.
 
-Random Forest Classifier:
+• Random Forest Classifier:
 Random Forest Classifier is an ensemble learning method that creates several decision trees and then combines their outputs to forecast. It reduces overfitting by combining results from many trees, each trained on a random subset of data and characteristics. This method makes Random Forest more resilient, adaptable, and effective for a wide range of classification tasks, including complex challenges like the Spaceship Titanic challenge.
 
-Decision Tree Classifier:
+• Decision Tree Classifier:
 The Decision Tree Classifier starts with training data and then tests its performance on validation data by predicting labels. It calculates and prints the model's accuracy, generates a full classification report, and produces a confusion matrix to provide insights into the model's performance across classes.
 
-Gaussian Navie Bayes Classifier:
+• Gaussian Navie Bayes Classifier:
 The Gaussian Naive Bayes classifier is trained on training data and then evaluated on validation data by predicting label values. It computes and publishes the model's accuracy, generates a full classification report, and produces a confusion matrix to provide a comprehensive picture of the model's performance across classes.
 
-K-Nearest Neighbours(KNN):
+• K-Nearest Neighbours(KNN):
 The K-Nearest Neighbours (KNN) classifier is trained with 5 neighbours and then evaluated on validation data by predicting labels. It computes and publishes the model's accuracy, generates a full classification report, and produces a confusion matrix, which provides a comprehensive picture of the model's prediction performance across many classes.
 
-ADABoost Classifier:
+• ADABoost Classifier:
 The AdaBoost classifier is trained with 100 estimators and then evaluated on validation data by predicting labels. It computes and publishes the model's accuracy, generates a full classification report, and produces a confusion matrix, which provides a comprehensive summary of the model's performance across various classes. AdaBoost increases the accuracy of weak classifiers by integrating them into a strong classifier, hence improving prediction performance.
 
-XGBoost Classifier:
+• XGBoost Classifier:
 The XGBoost classifier is trained with 100 estimators and then evaluated on validation data by predicting labels. It computes and prints the model's correctness, creates a thorough classification report, and produces a confusion matrix. This approach generates a complete assessment of the model's performance across classes. XGBoost is a highly efficient and accurate gradient boosting method used in predictive modelling.
 
-Light Gradient Boosting Machine:
+• Light Gradient Boosting Machine:
 LightGBM is a gradient boosting system that relies on tree-based learning techniques. It is built for efficiency and can process enormous datasets rapidly. The model constructs trees vertically, leaf-wise rather than level-wise, reducing loss when compared to typical boosting methods. LightGBM supports parallel and GPU learning, making it ideal for large-scale data and offering high accuracy in a variety of machine learning applications such as classification, regression, and ranking.
 
-Automated Machine Learning:
+• Automated Machine Learning:
 AutoML speeds up the machine learning process by automating operations including data preprocessing, feature engineering, model selection, and hyperparameter tweaking. It uses computer resources to efficiently assess different methods and configurations, with the goal of identifying the best-performing model for a given dataset and prediction job. AutoML frameworks frequently incorporate tools for model evaluation, interpretation, and deployment, making machine learning accessible to users that lack extensive expertise in data science or machine learning. By automating these complicated operations, AutoML speeds up the development and deployment of machine learning models, allowing for faster data insights and decision-making.
 
 H2O, an open source, scalable, networked machine learning platform, has a fully automatic supervised learning method called H2O AutoML.This includes one-hot encoding for XGBoost models, automated imputation, and normalisation as needed. Categorical data can be handled natively by H2O tree-based models (Random Forests, Gradient Boosting Machines), which provide categorical variable grouping. We compared various automatic target encoding6 strategies for high-cardinality features in experimental versions of the algorithm.
