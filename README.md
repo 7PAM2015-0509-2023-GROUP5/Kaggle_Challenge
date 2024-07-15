@@ -98,49 +98,49 @@ df_test.drop(columns=['Cabin'], inplace=True)
 ```
 
 2. Converting 'CryoSleep' and 'VIP' to Boolean:The 'CryoSleep' and 'VIP' features, which indicate whether a passenger chose cryosleep or VIP service, are converted to boolean values (true or false). This standardises their representation for easy use in machine learning models.
-'''shell
+```shell
 df_train['CryoSleep'] = df_train['CryoSleep'].astype(bool)
 df_test['CryoSleep'] = df_test['CryoSleep'].astype(bool)
 df_train['VIP'] = df_train['VIP'].astype(bool)
 df_test['VIP'] = df_test['VIP'].astype(bool)
-'''
+```
 
 3. Encoding Categorical Features: LabelEncoder converts categorical information such as 'HomePlanet', 'Destination', 'Deck', and 'Side' to numerical values. This transformation turns categorical data into a format suitable for machine learning techniques.
-'''shell
+```shell
 from sklearn.preprocessing import LabelEncoder
 
 le = LabelEncoder()
 for col in ['HomePlanet', 'Destination', 'Deck', 'Side']:
     df_train[col] = le.fit_transform(df_train[col])
     df_test[col] = le.transform(df_test[col])
-'''
+```
 
 4. Feature Scaling:Numerical features like 'Age', 'RoomService', 'FoodCourt', and others are scaled with StandardScaler. Scaling guarantees that all features contribute equally to model training, preventing a single feature from dominating due to its greater numerical range.
-'''shell
+```shell
 from sklearn.preprocessing import StandardScaler
 
 scaler = StandardScaler()
 num_features = ['Age', 'RoomService', 'FoodCourt', 'ShoppingMall', 'Spa', 'VRDeck', 'CabinNum']
 df_train[num_features] = scaler.fit_transform(df_train[num_features])
 df_test[num_features] = scaler.transform(df_test[num_features])
-'''
+```
 
 5. Prepare Target Variable:The goal variable, 'Transported', is separated from the training data (X) and assigned its own variable (y). This enables you to train a model to predict if passengers have been transported.
-'''shell
+```shell
 X = df_train.drop(columns=['Transported', 'Name', 'PassengerId'])
 y = df_train['Transported']
 X_test = df_test.drop(columns=['Name', 'PassengerId'])
-'''
+```
 
 6. Train-Test Split:The training data (X) is divided into two sets: training and validation (X_train, X_val), each with its own set of target variables. This enables the model to be evaluated on data that it did not observe during training.
-'''shell
+```shell
 from sklearn.model_selection import train_test_split
 
 X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
-'''
+```
 
 7. Checking Preprocessed Data:Sample outputs (X_train, y_train, and X_test) display the preprocessed data frames following all transformations. This helps to ensure that the data pretreatment stages were completed appropriately and that the data is ready for model training.
-'''shell
+```shell
 print("X_train:")
 print(X_train.head())
 
@@ -149,7 +149,7 @@ print(y_train.head())
 
 print("\nX_test:")
 print(X_test.head())
-'''
+```
 
 ### Model Building <a name="model-building"></a>
 Gradient Boosting:
@@ -184,6 +184,29 @@ LightGBM is a gradient boosting system that relies on tree-based learning techni
 
 Automated Machine Learning:
 AutoML speeds up the machine learning process by automating operations including data preprocessing, feature engineering, model selection, and hyperparameter tweaking. It uses computer resources to efficiently assess different methods and configurations, with the goal of identifying the best-performing model for a given dataset and prediction job. AutoML frameworks frequently incorporate tools for model evaluation, interpretation, and deployment, making machine learning accessible to users that lack extensive expertise in data science or machine learning. By automating these complicated operations, AutoML speeds up the development and deployment of machine learning models, allowing for faster data insights and decision-making.
+
+H2O, an open source, scalable, networked machine learning platform, has a fully automatic supervised learning method called H2O AutoML.This includes one-hot encoding for XGBoost models, automated imputation, and normalisation as needed. Categorical data can be handled natively by H2O tree-based models (Random Forests, Gradient Boosting Machines), which provide categorical variable grouping. We compared various automatic target encoding6 strategies for high-cardinality features in experimental versions of the algorithm.
+
+The H2O AutoML roadmap includes further data pre-processing steps such as feature extraction and selection for automatic dimensionality reduction, as well as automatic text encoding.H2O AutoML includes Deep Neural Networks (DNNs), Random Forests (Default and Extremely Randomised Tree types), H2O Gradient Boosting Machines (GBM)9, XGBoost Gradient Boosting Machines (GBM)8, and Generalised Linear Models (GLM)12.
+
+This also allows for GPU-accelerated training. H2O AutoML currently trains and cross-validates the following models: a near-default H2O Deep Neural Net, an H2O Extremely Randomised Trees (XRT) model, a random grid of H2O GBMs, a random grid of H2O GLMs, five pre-specified H2O GBMs, and a random grid of XGBoost GBMs.
+
+```shell
+import h2o
+from h2o.automl import H2OAutoML
+h2o.init()
+train_h2o = h2o.H2OFrame(pd.concat([X_train, y_train], axis=1))
+valid_h2o = h2o.H2OFrame(pd.concat([X_val, y_val], axis=1))
+
+aml = H2OAutoML(max_runtime_secs=3600, seed=42)
+aml.train(y='Transported', training_frame=train_h2o, validation_frame=valid_h2o)
+
+# Leaderboard and Best Model
+lb = aml.leaderboard
+print(lb)
+
+best_model = aml.leader
+```
 
 ### License <a name="license"></a>
 This project is licensed under the MIT License - see the LICENSE file for details.
