@@ -90,12 +90,12 @@ Converting the datatypes from one format to useable format or data type.
 ### Feature Engineering <a name="feature-engineering"></a>
 Data Preprocessing pipeline in detail:
 1. Splitting the 'Cabin' Feature: The 'Cabin' feature is divided into three columns: 'Deck', 'CabinNum', and 'Side', using.str.split('/', expand=True). This enables the model to represent spatial relationships depending on cabin features.
-'''shell
+```shell
 df_train[['Deck', 'CabinNum', 'Side']] = df_train['Cabin'].str.split('/', expand=True)
 df_test[['Deck', 'CabinNum', 'Side']] = df_test['Cabin'].str.split('/', expand=True)
 df_train.drop(columns=['Cabin'], inplace=True)
 df_test.drop(columns=['Cabin'], inplace=True)
-'''
+```
 
 2. Converting 'CryoSleep' and 'VIP' to Boolean:The 'CryoSleep' and 'VIP' features, which indicate whether a passenger chose cryosleep or VIP service, are converted to boolean values (true or false). This standardises their representation for easy use in machine learning models.
 '''shell
