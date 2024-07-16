@@ -31,7 +31,7 @@ The dataset contains personal records of passengers from the Spaceship Titanic t
 >* train.csv - About 2/3rd (~8700) of travellers' personal records will be used as training data.
 >* PassengerId - Each passenger is assigned a unique ID. Each Id is in the format gggg_pp, where gggg represents the group the passenger is travelling with and pp represents their number inside the group. People in a group are typically family members, but not always.
 >* HomePlanet - The planet from which the traveller has departed, often their regular domicile.
->* CrvoSleep - Indicates whether the passenger requested to be placed in suspended animation for the duration of the voyage. Passengers in cryosleep are confined to their cabin.
+>* CryoSleep - Indicates whether the passenger requested to be placed in suspended animation for the duration of the voyage. Passengers in cryosleep are confined to their cabin.
 >* Cabin - The cabin number in which the passenger is staying. Deck/num/side is the format used, with side being either P for Port or S for Starboard.
 >* Destination - The planet to which the passenger will depart.
 >* Age - Passenger age
